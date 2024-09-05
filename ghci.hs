@@ -150,3 +150,15 @@ bisiesto anio | saberSiEsMultiplo anio 4 == 0 = False
               | (saberSiEsMultiplo anio 400 == 0) && (saberSiEsMultiplo anio 100 == 1) = False
               | otherwise = True
 
+type Coordenada3D = (Float, Float, Float)
+
+distanciaManhattan :: Coordenada3D -> Coordenada3D -> Float
+distanciaManhattan (x1, y1, z1) (x2, y2, z2) = abs (x1-x2) + abs (y1-y2) + abs (z1-z2)
+
+sumaUltimosDosDigitos :: Integer -> Integer
+sumaUltimosDosDigitos x = div (mod (absoluto x) 100) 10 + mod (absoluto x) 10
+
+comparar :: Integer -> Integer -> Integer
+comparar a b | sumaUltimosDosDigitos a < sumaUltimosDosDigitos b = 1
+             | sumaUltimosDosDigitos a > sumaUltimosDosDigitos b = -1
+             | otherwise = 0
