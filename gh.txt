@@ -1,0 +1,77 @@
+-------------------------------------------- EJERCICIO 1 -----------------------------------------------------------
+a) 1, 2
+b) 4, +-2?
+c) 3.5, 4
+d) <1,4,9>, <1,2,3>
+e) <1,4,9>, <2,1,3>
+f) <1,4,9>, <1,4,3>
+g) <-1,4,9>, <-1,2,3>
+h) ?
+i) ?
+
+-------------------------------------------- EJERCICIO 2 -----------------------------------------------------------
+1) No, porque el valor que retorna pertenece a los reales, y si x no es positivo la el resultado de la raiz pertenece a C
+2) La diferencia es que en raicesCuadradasDos, no necesariamente tiene que estar en orden la secuencia para que coincidan los numeros con sus raices.
+3) Raices1 satisface Raices2 pero no al revés
+4) ?
+5) ?
+6) Puede tomar la secuencia s y no pasar a raíz los elementos negativos.
+7) Puedo tener elementos repetidos, pero (2,2,1) no seria salida válida ya no se cumple esa salida para todos los valores de s. // Seria valida, habria
+que especificar que se quiere que corresponda cada raiz.
+-------------------------------------------- EJERCICIO 5 -----------------------------------------------------------
+
+problema cantidadDeColectivos(todosLosColectivos: sec<Z>, unaLinea: Z, colectivosEnUnDia: sec<Z>): Z(int) {
+	requiere { pertenece(unaLinea, todosLosColectivos) = true } //requiere no es parte de la programacion
+	// requiere { todosLosColectivos no tiene elementos repetidos } 
+	asegura { res igual a la cantidad de veces que "unaLinea" aparece en colectivosEnUnDia }
+
+}
+
+problema compararLineas(primeraLinea, segundaLinea: Z, colectivosEnUnDia: sec<Z>): Z {
+
+	requiere { True } // ¿pertenece a la lista de colectivos si lo veo en cantidadDeColectivos()?
+	asegura { res = primeraLinea si y solo si cantidadDeColectivos(primeraLinea) > cantidadDeColectivos(segundaLinea) }
+	asegura { res = segundaLinea si y solo si cantidadDeColectivos(primeraLinea) < cantidadDeColectivos(segundaLinea) }
+	// y si son iguales?
+}
+
+
+------------------------------------------------------------------------------------------
+
+problema absoluto(numero Z): Z {
+	requiere { True }
+	asegura { res es igual al valor absoluto de 'numero' }
+}
+
+problema maximoAbsoluto(x, y Z): Z {
+	requiere { True }
+	asegura { res = absoluto x si absoluto x > absoluto y }
+	asegura { res = absoluto y si absoluto x < absoluto y }
+}
+
+problema algunoEsCero(x, y R): Bool {
+	requiere { True }
+	asegura { res = true si x == 0 o y == 0}
+}
+
+problema ambosSonCero(x, y R): Bool {
+	requiere { True }
+	asegura { res = true si x == 0 y y == 0}
+}
+
+problema esMultiploDe (x, y N): Bool {
+	requiere { x > y }
+	asegura { res = true si x es múltiplo de y }
+}
+
+problema digitoDecenas (x: Z): Z {
+	requiere { x > 9 }
+	asegura { res es igual al digito de las decenas de x }
+}
+
+problema prodInt (tupla1: RxR, tupla2: RxR): RxR {
+	requiere { True }
+	asegura { res es igual a la tupla cuya primera componente 
+	resulta de hacer el producto entre las primeras componentes de tupla1 y tupla2 y
+	su segunda componente resulta de hacer el producto entre las segundas componentes de tupla1 y tupla2 }
+}
