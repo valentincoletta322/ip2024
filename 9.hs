@@ -28,3 +28,45 @@ esCapicua n | ultimo /= primero = False
 
 sacarBordes :: Integer -> Integer
 sacarBordes n = mod (div n 10) (10^((cantDigitos n)-2))
+
+sumaPotencias :: Integer -> Integer -> Integer -> Integer
+sumaPotencias q n m | n /= 1 = q^(n+m) + sumaPotencias q (n-1) m
+                    | m /= 1 = q^(n+m) + sumaPotencias q n (m-1)
+                    | otherwise = q^2
+
+                    -- 2+2 1+2 1+1 CORREGIR
+
+menorDivisor :: Integer -> Integer
+menorDivisor n = menorDivisorDesde n 2
+
+menorDivisorDesde :: Integer -> Integer -> Integer
+menorDivisorDesde n desde | mod n desde == 0 = desde
+                          | otherwise = menorDivisorDesde n (desde+1)
+
+esFibonacci :: Integer -> Bool
+esFibonacci n = recorrerFibonacci n 1
+
+recorrerFibonacci n a | fibonacci a > n = False
+                      | fibonacci a == n = True
+                      | otherwise = recorrerFibonacci n (a+1)
+
+
+esPrimo :: Integer -> Bool
+esPrimo 2 = True
+esPrimo 1 = False
+esPrimo n = menorDivisor n == n
+
+
+esSumaInicialDePrimos :: Integer -> Bool
+esSumaInicialDePrimos n = recorrerPrimos n 2
+
+recorrerPrimos :: Integer -> Integer -> Bool
+recorrerPrimos n desde | sumarPrimosHastaN desde 2 > n = False
+                       | sumarPrimosHastaN desde 2 == n = True
+                       | otherwise = recorrerPrimos n (desde+1)
+
+
+sumarPrimosHastaN :: Integer -> Integer -> Integer
+sumarPrimosHastaN n desde | (desde <= n) && (esPrimo desde) = desde + sumarPrimosHastaN n (desde+1)
+                          | (desde <= n) = sumarPrimosHastaN n (desde+1)
+                          | otherwise = 0
