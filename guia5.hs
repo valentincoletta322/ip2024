@@ -13,13 +13,8 @@ maximo (x:xs)
 
 ordenar :: [Integer] -> [Integer]
 ordenar [x] = [x]
-ordenar (x:xs)
-        | x > head xs =  (ordenar ([head xs]++[x]++tail xs))
-        | otherwise = ordenar ([x]++(tail xs)++[head xs])
-
-        -- 532 5>3 -> ordenar 352
-        -- 352 3>5 -> 3++
-                 --   25
+ordenar (x:xs) = ordenar (quitar max (x:xs)) ++ [max]
+    where max = maximo (x:xs)
 
 type Texto = [Char]
 type Nombre = Texto
